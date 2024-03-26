@@ -1,15 +1,21 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Allows different actions of the player
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private int _playerSpeed;
+    [SerializeField]
+    private PlayerMain _playerMain;
+
+    [SerializeField]
+    private int _playerSpeed;
 
     [SerializeField]
     private LayerMask _layerMask;
 
-    [SerializeField]
-    private GameObject _gameObjectTouched;
+    public GameObject _gameObjectTouched;
 
     private Rigidbody _rb;
     private Vector3 _directionPlayer;
@@ -27,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnLook(InputAction.CallbackContext context)
     {
-
+        //not implemented
     }
 
     // thank's Kylian for showing me how
@@ -46,9 +52,8 @@ public class PlayerController : MonoBehaviour
                         // MerchantFound();
                         break;
                     case "Land":
-                        Debug.Log(_gameObjectTouched.name);
-
-                        // HarvestingArea();
+                        Field field = _gameObjectTouched.GetComponent<Field>();
+                        _playerMain.PlayerChooseField.SelectLand(field);
                         break;
                     case "Plant":
                         Debug.Log(_gameObjectTouched.name);
@@ -79,5 +84,10 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         _rb.velocity = _directionPlayer;
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            _playerMain.Field.PlanteSeed();
+        }
     }
 }

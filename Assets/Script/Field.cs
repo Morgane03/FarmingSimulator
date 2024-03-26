@@ -2,15 +2,21 @@
 
 public class Field : MonoBehaviour
 {
-    private bool _isOcupied;
+    public bool _isOcupied = false;
 
     [SerializeField]
     private GameObject _seedSelect;
 
+    [SerializeField]
+    private GameObject _cropPrefab;
+
+    [SerializeField]
+    private SeedBehaviour _seedBehaviour;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        _isOcupied = false;
+        Selecte(false);
     }
 
     public void Selecte(bool toggle)
@@ -18,13 +24,12 @@ public class Field : MonoBehaviour
         _seedSelect.SetActive(toggle);
     }
 
-    private void PlanteSeed()
+    public void PlanteSeed()
     {
-        if (!_isOcupied)
+        if(!_isOcupied)
         {
             _isOcupied = true;
-
-            // Plant seed
+            _seedBehaviour.PlantSeed();
         }
     }
 

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfd6f8104b5a7194ebbce62de374e7f1, type: 3}
+  m_Name: Bush
+  m_EditorClassIdentifier: 
+  SeedName: Bush
+  Seed: {fileID: 1994261357479266, guid: 30a37dec18fc3b14e9615797cd33da06, type: 3}
+  Seedling: {fileID: 1147994195056072, guid: 458eec3309cb86842af7105085ef67fc, type: 3}
+  Harvestable: {fileID: 1695036058323326, guid: 613ec6aab7c2e7749ba54f9a5163ffa9, type: 3}
+  GrowthTime: 4
+  PurchasePrice: 0
+  SellPrice: 0
