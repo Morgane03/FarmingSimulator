@@ -3,11 +3,10 @@
 [CreateAssetMenu(fileName = "SeedData", menuName = "ScriptableObjects/SeedData", order = 1)]
 public class SeedData : ScriptableObject
 {
-    public string seedName;
-    public Sprite seedSprite;
-    public int growthTime;
+    public string SeedName;
+    public Sprite SeedSprite;
+    public int GrowthTime;
 
-
-    public int purchasePrice;
-    public int sellPrice;
+    public int PurchasePrice;
+    public int SellPrice;
 }
