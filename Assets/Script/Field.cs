@@ -43,6 +43,7 @@ public class Field : MonoBehaviour
         StartCoroutine(Harvestable());
     }
 
+    //Prevents the plant from growing automatically
     private IEnumerator Harvestable()
     {
         yield return new WaitForSeconds(5);
