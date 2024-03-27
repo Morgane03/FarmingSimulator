@@ -8,11 +8,23 @@ public class PlayerMoney : MonoBehaviour
 
     [SerializeField]
     private int PlayerBaseMoney;
-    private int _playerMoney;
+    public int PlayerCurrentMoney;
 
     // Start is called before the first frame update
     void Start()
     {
         _moneyText.text = PlayerBaseMoney.ToString();
+    }
+
+    public void AddMoney(int money)
+    {
+        PlayerCurrentMoney += money;
+        _moneyText.text = PlayerCurrentMoney.ToString();
+    }
+
+    public void RemoveMoney(int money)
+    {
+        PlayerCurrentMoney -= money;
+        _moneyText.text = PlayerCurrentMoney.ToString();
     }
 }

@@ -14,13 +14,13 @@ public class SeedBehaviour : MonoBehaviour
 
     public void PlantSeed()
     {
-        if (SeedData.InPossession <= 0)
+        if (SeedData.CanPlant <= 0)
         {
             return;
         }
         else
         {
-            _inventory.RemoveSeed(SeedData, SeedData.InPossession);
+            _inventory.RemoveSeed(SeedData, SeedData.CanPlant);
             CurrentState = Instantiate(SeedData.Seed, transform);
             startTime = Time.time;
             StartCoroutine(GrowPlant());

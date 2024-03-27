@@ -12,6 +12,9 @@ public class Field : MonoBehaviour
     [SerializeField]
     private SeedBehaviour _seedBehaviour;
 
+    [SerializeField]
+    private Inventory _inventory;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -37,7 +40,7 @@ public class Field : MonoBehaviour
         if (IsOcupied && _seedBehaviour.IsHarvestable)
         {
             IsOcupied = false;
-            //Inventory.AddSeed(_seedBehaviour.seedData, _seedBehaviour.seedData.Amount);
+            _inventory.AddSeed(_seedBehaviour.SeedData, _seedBehaviour.SeedData.Amount);
             Destroy(_seedBehaviour.CurrentState);
         }
         StartCoroutine(Harvestable());

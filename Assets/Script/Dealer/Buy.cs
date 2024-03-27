@@ -1,16 +1,18 @@
 ﻿using UnityEngine;
 
-public class Buy : MonoBehaviour
+public class Buy : Merchant
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //public void BuySeed()
+    //{
+    //    if (MaxAmount > 0)
+    //    {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //        playerInventory.AddSeed(currentSeed, currentSeed.Amount);
+    //        // Code à rajouter ici
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("Not enough seeds in inventory.");
+    //    }
+    //}
 }

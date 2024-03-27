@@ -15,6 +15,7 @@ public class Inventory : MonoBehaviour
         {
             _seedInventory.Add(seed, amount);
         }
+        seed.Amount += amount;
     }
 
     public void RemoveSeed(SeedData seed, int amount)
@@ -28,6 +29,7 @@ public class Inventory : MonoBehaviour
                 _seedInventory.Remove(seed);
             }
         }
+        seed.CanPlant -= amount;
     }
 
     public int GetAmount(SeedData seed)
