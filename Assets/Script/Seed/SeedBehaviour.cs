@@ -7,6 +7,7 @@ public class SeedBehaviour : MonoBehaviour
     private int growthStage = 0;
     private float startTime;
     private GameObject _currentState;
+    public bool IsHarvestable = false;
 
     public void PlantSeed()
     {
@@ -27,6 +28,7 @@ public class SeedBehaviour : MonoBehaviour
                 UpdatePlantPrefab();
                 startTime = Time.time;
             }
+
             yield return null;
         }
     }
@@ -42,6 +44,7 @@ public class SeedBehaviour : MonoBehaviour
             case 2:
                 Destroy(_currentState);
                 _currentState = Instantiate(seedData.Harvestable, transform.position, Quaternion.identity);
+                IsHarvestable = true;
                 break;
         }
     }

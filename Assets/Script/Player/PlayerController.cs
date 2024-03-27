@@ -81,13 +81,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnFarm(InputAction.CallbackContext context)
+    {
+        _playerMain.Field.PlanteSeed();
+    }
+
     private void Update()
     {
         _rb.velocity = _directionPlayer;
-
-        if(Input.GetKeyDown(KeyCode.F))
-        {
-            _playerMain.Field.PlanteSeed();
-        }
     }
 }

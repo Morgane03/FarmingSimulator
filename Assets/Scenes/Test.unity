@@ -206,9 +206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67297293bb2be3a4ba705c90eb1804e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isOcupied: 1
+  IsOcupied: 0
+  CanPlant: 0
   _seedSelect: {fileID: 533571971}
-  _cropPrefab: {fileID: 0}
   _seedBehaviour: {fileID: 0}
 --- !u!4 &77808301 stripped
 Transform:
@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 210231205}
   - component: {fileID: 210231204}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SeedB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -311,6 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seedData: {fileID: 11400000, guid: 1ab652a146ea61948b1f3e0d81705b77, type: 2}
+  IsHarvestable: 0
 --- !u!4 &210231205
 Transform:
   m_ObjectHideFlags: 0
@@ -409,6 +410,10 @@ PrefabInstance:
     - target: {fileID: 1792054803756928, guid: d7fd0f034fb608643a24ead27702c3a3, type: 3}
       propertyPath: m_Name
       value: desfrtgh
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792054803756928, guid: d7fd0f034fb608643a24ead27702c3a3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1792054803756928, guid: d7fd0f034fb608643a24ead27702c3a3, type: 3}
       propertyPath: m_TagString
@@ -1250,9 +1255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67297293bb2be3a4ba705c90eb1804e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isOcupied: 0
+  IsOcupied: 0
+  CanPlant: 0
   _seedSelect: {fileID: 1144886822}
-  _cropPrefab: {fileID: 1513502932}
   _seedBehaviour: {fileID: 210231204}
 --- !u!1 &1387130844
 GameObject:
@@ -5916,6 +5921,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7e63371b-0f3a-4aee-8ad3-d9dfcbe1b895
     m_ActionName: Player/Interact[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9198313641917191722}
+        m_TargetAssemblyTypeName: PlayerController, Assembly
+        m_MethodName: OnFarm
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5d48eef6-7049-43b6-96c5-302f0ab570df
+    m_ActionName: Player/Farm[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -6001,7 +6022,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerMain: {fileID: 9198313641917191726}
-  _selectedField: {fileID: 1192835957}
 --- !u!114 &9198313641917191726
 MonoBehaviour:
   m_ObjectHideFlags: 0

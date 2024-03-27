@@ -14,4 +14,5 @@ public class SeedData : ScriptableObject
 
     public int PurchasePrice;
     public int SellPrice;
+    public int Amount;
 }

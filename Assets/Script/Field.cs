@@ -2,13 +2,11 @@
 
 public class Field : MonoBehaviour
 {
-    public bool _isOcupied = false;
+    public bool IsOcupied = false;
+    public bool CanPlant = false;
 
     [SerializeField]
     private GameObject _seedSelect;
-
-    [SerializeField]
-    private GameObject _cropPrefab;
 
     [SerializeField]
     private SeedBehaviour _seedBehaviour;
@@ -26,18 +24,18 @@ public class Field : MonoBehaviour
 
     public void PlanteSeed()
     {
-        if(!_isOcupied)
+        if (!IsOcupied && CanPlant)
         {
-            _isOcupied = true;
+            IsOcupied = true;
             _seedBehaviour.PlantSeed();
         }
     }
 
     private void Harvest()
     {
-        if (_isOcupied)
+        if (IsOcupied && _seedBehaviour.IsHarvestable)
         {
-            _isOcupied = false;
+            IsOcupied = false;
 
             // Harvest
         }

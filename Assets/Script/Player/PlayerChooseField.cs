@@ -8,19 +8,23 @@ public class PlayerChooseField : MonoBehaviour
     [SerializeField]
     private PlayerMain _playerMain;
 
-    [SerializeField]
-    private Field _selectedField = null;
+    private void Start()
+    {
+        _playerMain.Field = null;
+    }
 
     public void SelectLand(Field field)
     {
-        if (_selectedField != null)
+        if (_playerMain.Field != null)
         {
-            _selectedField.Selecte(false);
+            _playerMain.Field.Selecte(false);
+            _playerMain.Field.CanPlant = false;
         }
 
         // Selected new field
-        _selectedField = field;
+        _playerMain.Field = field;
         field = _playerMain.PlayerController._gameObjectTouched.GetComponent<Field>();
         field.Selecte(true);
+        field.CanPlant = true;
     }
 }
