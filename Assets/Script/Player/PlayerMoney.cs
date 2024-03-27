@@ -15,10 +15,4 @@ public class PlayerMoney : MonoBehaviour
     {
         _moneyText.text = PlayerBaseMoney.ToString();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

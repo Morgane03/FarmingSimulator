@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Field : MonoBehaviour
 {
@@ -39,6 +40,13 @@ public class Field : MonoBehaviour
             //Inventory.AddSeed(_seedBehaviour.seedData, _seedBehaviour.seedData.Amount);
             Destroy(_seedBehaviour.CurrentState);
         }
+        StartCoroutine(Harvestable());
+    }
+
+    private IEnumerator Harvestable()
+    {
+        yield return new WaitForSeconds(5);
         _seedBehaviour.IsHarvestable = false;
+        _seedBehaviour.GrowthStage = 0;
     }
 }

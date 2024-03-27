@@ -4,7 +4,7 @@ using UnityEngine;
 public class SeedBehaviour : MonoBehaviour
 {
     public SeedData SeedData;
-    private int growthStage = 0;
+    public int GrowthStage = 0;
     private float startTime;
     public GameObject CurrentState;
     public bool IsHarvestable = false;
@@ -14,7 +14,7 @@ public class SeedBehaviour : MonoBehaviour
 
     public void PlantSeed()
     {
-        if(SeedData.InPossession <= 0)
+        if (SeedData.InPossession <= 0)
         {
             return;
         }
@@ -29,13 +29,13 @@ public class SeedBehaviour : MonoBehaviour
 
     private IEnumerator GrowPlant()
     {
-        while (growthStage < 3)
+        while (GrowthStage < 3)
         {
             float elapsedTime = Time.time - startTime;
             if (elapsedTime >= SeedData.GrowthTime)
             {
                 // Change to next growth stage
-                growthStage++;
+                GrowthStage++;
                 UpdatePlantPrefab();
                 startTime = Time.time;
             }
@@ -46,7 +46,7 @@ public class SeedBehaviour : MonoBehaviour
 
     private void UpdatePlantPrefab()
     {
-        switch (growthStage)
+        switch (GrowthStage)
         {
             case 1:
                 Destroy(CurrentState);
