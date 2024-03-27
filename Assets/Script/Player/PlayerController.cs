@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private LayerMask _layerMask;
 
+    [SerializeField]
+    private GameObject _dealerCanva;
+
     public GameObject _gameObjectTouched;
 
     private Rigidbody _rb;
@@ -48,8 +51,7 @@ public class PlayerController : MonoBehaviour
                 {
                     case "Market":
                         Debug.Log(_gameObjectTouched.name);
-
-                        // MerchantFound();
+                        _dealerCanva.SetActive(true);
                         break;
                     case "Land":
                         Field field = _gameObjectTouched.GetComponent<Field>();

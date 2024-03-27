@@ -7,5 +7,6 @@ public class PlayerMain : MonoBehaviour
 {
     public PlayerController PlayerController;
     public PlayerChooseField PlayerChooseField;
+    public PlayerMoney PlayerMoney;
     public Field Field;
 }
