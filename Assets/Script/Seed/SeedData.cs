@@ -7,12 +7,16 @@
 public class SeedData : ScriptableObject
 {
     public string SeedName;
+
     public GameObject Seed;
     public GameObject Seedling;
     public GameObject Harvestable;
+
     public int GrowthTime;
 
     public int PurchasePrice;
     public int SellPrice;
+
+    public int InPossession;
     public int Amount;
 }

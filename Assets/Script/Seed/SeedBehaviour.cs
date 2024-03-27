@@ -3,17 +3,28 @@ using UnityEngine;
 
 public class SeedBehaviour : MonoBehaviour
 {
-    public SeedData seedData;
+    public SeedData SeedData;
     private int growthStage = 0;
     private float startTime;
-    private GameObject _currentState;
+    public GameObject CurrentState;
     public bool IsHarvestable = false;
+
+    [SerializeField]
+    Inventory _inventory;
 
     public void PlantSeed()
     {
-        _currentState = Instantiate(seedData.Seed, transform);
-        startTime = Time.time;
-        StartCoroutine(GrowPlant());
+        if(SeedData.InPossession <= 0)
+        {
+            return;
+        }
+        else
+        {
+            _inventory.RemoveSeed(SeedData, SeedData.InPossession);
+            CurrentState = Instantiate(SeedData.Seed, transform);
+            startTime = Time.time;
+            StartCoroutine(GrowPlant());
+        }
     }
 
     private IEnumerator GrowPlant()
@@ -21,7 +32,7 @@ public class SeedBehaviour : MonoBehaviour
         while (growthStage < 3)
         {
             float elapsedTime = Time.time - startTime;
-            if (elapsedTime >= seedData.GrowthTime)
+            if (elapsedTime >= SeedData.GrowthTime)
             {
                 // Change to next growth stage
                 growthStage++;
@@ -38,12 +49,12 @@ public class SeedBehaviour : MonoBehaviour
         switch (growthStage)
         {
             case 1:
-                Destroy(_currentState);
-                _currentState = Instantiate(seedData.Seedling, transform.position, Quaternion.identity);
+                Destroy(CurrentState);
+                CurrentState = Instantiate(SeedData.Seedling, transform.position, Quaternion.identity);
                 break;
             case 2:
-                Destroy(_currentState);
-                _currentState = Instantiate(seedData.Harvestable, transform.position, Quaternion.identity);
+                Destroy(CurrentState);
+                CurrentState = Instantiate(SeedData.Harvestable, transform.position, Quaternion.identity);
                 IsHarvestable = true;
                 break;
         }

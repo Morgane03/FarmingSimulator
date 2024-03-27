@@ -84,6 +84,7 @@ public class PlayerController : MonoBehaviour
     public void OnFarm(InputAction.CallbackContext context)
     {
         _playerMain.Field.PlanteSeed();
+        _playerMain.Field.Harvest();
     }
 
     private void Update()

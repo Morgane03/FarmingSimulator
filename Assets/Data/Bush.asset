@@ -19,3 +19,5 @@ MonoBehaviour:
   GrowthTime: 4
   PurchasePrice: 0
   SellPrice: 0
+  InPossession: 1
+  Amount: 1

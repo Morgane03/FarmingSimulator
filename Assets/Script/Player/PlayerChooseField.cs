@@ -18,13 +18,13 @@ public class PlayerChooseField : MonoBehaviour
         if (_playerMain.Field != null)
         {
             _playerMain.Field.Selecte(false);
-            _playerMain.Field.CanPlant = false;
+            _playerMain.Field.IsChoose = false;
         }
 
         // Selected new field
         _playerMain.Field = field;
         field = _playerMain.PlayerController._gameObjectTouched.GetComponent<Field>();
         field.Selecte(true);
-        field.CanPlant = true;
+        field.IsChoose = true;
     }
 }
