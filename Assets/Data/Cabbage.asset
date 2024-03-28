@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfd6f8104b5a7194ebbce62de374e7f1, type: 3}
-  m_Name: Bush
+  m_Name: Cabbage
   m_EditorClassIdentifier: 
-  SeedName: Bush
-  Seed: {fileID: 1994261357479266, guid: 30a37dec18fc3b14e9615797cd33da06, type: 3}
-  Seedling: {fileID: 1147994195056072, guid: 458eec3309cb86842af7105085ef67fc, type: 3}
-  Harvestable: {fileID: 1695036058323326, guid: 613ec6aab7c2e7749ba54f9a5163ffa9, type: 3}
-  GrowthTime: 2
-  PurchasePrice: 3
-  SellPrice: 5
+  SeedName: Cabbage
+  Seed: {fileID: 1672034531426954, guid: aaf1f22ab6502834ab49efc399c9f235, type: 3}
+  Seedling: {fileID: 1830502130717366, guid: c6ad92f3822941a4b87102b4515d3412, type: 3}
+  Harvestable: {fileID: 1648437061671814, guid: 3de71c2ba7770be419207944b730778a, type: 3}
+  GrowthTime: 5
+  PurchasePrice: 12
+  SellPrice: 6
   CanPlant: 0
   Amount: 0

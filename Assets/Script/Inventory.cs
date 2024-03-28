@@ -7,6 +7,8 @@ public class Inventory : MonoBehaviour
 
     public void AddSeed(SeedData seed, int amount)
     {
+        Debug.Log($"Avant ajout : " + seed.name + GetAmount(seed));
+
         if (_seedInventory.ContainsKey(seed))
         {
             _seedInventory[seed] += amount;
@@ -15,7 +17,9 @@ public class Inventory : MonoBehaviour
         {
             _seedInventory.Add(seed, amount);
         }
-        seed.Amount += amount;
+
+        Debug.Log($"Après ajout : " + seed.name + GetAmount(seed));
+
     }
 
     public void RemoveSeed(SeedData seed, int amount)
@@ -29,7 +33,6 @@ public class Inventory : MonoBehaviour
                 _seedInventory.Remove(seed);
             }
         }
-        seed.CanPlant -= amount;
     }
 
     public int GetAmount(SeedData seed)

@@ -3,17 +3,19 @@ using UnityEngine;
 
 public class PlayerMoney : MonoBehaviour
 {
-    [SerializeField]
-    TextMeshProUGUI _moneyText;
-
-    [SerializeField]
-    private int PlayerBaseMoney;
     public int PlayerCurrentMoney;
 
+    [SerializeField]
+    private TextMeshProUGUI _moneyText;
+
+    [SerializeField]
+    private int _playerBaseMoney;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        _moneyText.text = PlayerBaseMoney.ToString();
+        _moneyText.text = _playerBaseMoney.ToString();
+        PlayerCurrentMoney = _playerBaseMoney;
     }
 
     public void AddMoney(int money)

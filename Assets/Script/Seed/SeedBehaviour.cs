@@ -3,28 +3,34 @@ using UnityEngine;
 
 public class SeedBehaviour : MonoBehaviour
 {
+    public GameObject CurrentState;
     public SeedData SeedData;
     public int GrowthStage = 0;
-    private float startTime;
-    public GameObject CurrentState;
     public bool IsHarvestable = false;
 
+    private float startTime;
+
     [SerializeField]
-    Inventory _inventory;
+    private Inventory _inventory;
 
     public void PlantSeed()
     {
-        if (SeedData.CanPlant <= 0)
+        Debug.Log($"Avant plantage : " + SeedData.name + _inventory.GetAmount(SeedData));
+
+        if (_inventory.GetAmount(SeedData) <= 0)
         {
             return;
         }
         else
         {
-            _inventory.RemoveSeed(SeedData, SeedData.CanPlant);
+            _inventory.RemoveSeed(SeedData, 1);
             CurrentState = Instantiate(SeedData.Seed, transform);
             startTime = Time.time;
             StartCoroutine(GrowPlant());
         }
+
+        Debug.Log($"Après plantage : " + SeedData.name + _inventory.GetAmount(SeedData));
+
     }
 
     private IEnumerator GrowPlant()

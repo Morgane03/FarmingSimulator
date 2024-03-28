@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfd6f8104b5a7194ebbce62de374e7f1, type: 3}
-  m_Name: Bush
+  m_Name: Pumpkin
   m_EditorClassIdentifier: 
-  SeedName: Bush
-  Seed: {fileID: 1994261357479266, guid: 30a37dec18fc3b14e9615797cd33da06, type: 3}
-  Seedling: {fileID: 1147994195056072, guid: 458eec3309cb86842af7105085ef67fc, type: 3}
-  Harvestable: {fileID: 1695036058323326, guid: 613ec6aab7c2e7749ba54f9a5163ffa9, type: 3}
-  GrowthTime: 2
-  PurchasePrice: 3
-  SellPrice: 5
+  SeedName: Pumpkin
+  Seed: {fileID: 1282951659646498, guid: ef45cada154f50b4490e89499cd3aaba, type: 3}
+  Seedling: {fileID: 1482622457389426, guid: 01b831e6d82274540a0966e6c3900187, type: 3}
+  Harvestable: {fileID: 1029079860058270, guid: fdb809c80f4c35d4fb535ab2501069e7, type: 3}
+  GrowthTime: 20
+  PurchasePrice: 18
+  SellPrice: 40
   CanPlant: 0
   Amount: 0

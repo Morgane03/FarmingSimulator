@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
+    public GameObject _gameObjectTouched;
+
     [SerializeField]
     private PlayerMain _playerMain;
 
@@ -17,8 +19,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private GameObject _dealerCanva;
-
-    public GameObject _gameObjectTouched;
 
     private Rigidbody _rb;
     private Vector3 _directionPlayer;
@@ -34,11 +34,6 @@ public class PlayerController : MonoBehaviour
         _directionPlayer = context.ReadValue<Vector3>();
     }
 
-    public void OnLook(InputAction.CallbackContext context)
-    {
-        //not implemented
-    }
-
     // thank's Kylian for showing me how
     public void OnInteract(InputAction.CallbackContext context)
     {
@@ -50,21 +45,23 @@ public class PlayerController : MonoBehaviour
                 switch (_gameObjectTouched.tag)
                 {
                     case "Market":
-                        Debug.Log(_gameObjectTouched.name);
                         _dealerCanva.SetActive(true);
                         break;
                     case "Land":
                         Field field = _gameObjectTouched.GetComponent<Field>();
                         _playerMain.PlayerChooseField.SelectLand(field);
                         break;
-                    case "Plant":
-                        Debug.Log(_gameObjectTouched.name);
-
-                        // HarvestPlant();
-                        break;
                 }
             }
         }
+    }
+
+    public void OnFarm(InputAction.CallbackContext context)
+    {
+        if (!context.started) return;
+        Debug.Log("Action !");
+        _playerMain.Field.PlanteSeed();
+        _playerMain.Field.Harvest();
     }
 
     private GameObject StartRaycast()
@@ -81,12 +78,6 @@ public class PlayerController : MonoBehaviour
         {
             return null;
         }
-    }
-
-    public void OnFarm(InputAction.CallbackContext context)
-    {
-        _playerMain.Field.PlanteSeed();
-        _playerMain.Field.Harvest();
     }
 
     private void Update()

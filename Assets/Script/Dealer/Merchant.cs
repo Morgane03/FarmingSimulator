@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Merchant : MonoBehaviour
@@ -10,41 +11,49 @@ public class Merchant : MonoBehaviour
     private PlayerMoney _playerMoney;
 
     [SerializeField]
-    private SeedData _seedData;
-
-    [SerializeField]
     private int _seedPossess;
 
     [SerializeField]
     private int _seedQuantity;
 
-    public void Buy()
-    {
-        int _priceTotal = _seedData.PurchasePrice * _seedQuantity;
+    [SerializeField]
+    private TextMeshProUGUI _warningText;
 
-        if (_seedPossess >= _seedQuantity && _priceTotal <= _playerMoney.PlayerCurrentMoney)
+    public void Buy(SeedData seedData)
+    {
+        int priceTotal = seedData.PurchasePrice * _seedQuantity;
+
+        if (_seedPossess >= _seedQuantity && priceTotal <= _playerMoney.PlayerCurrentMoney)
         {
             _seedPossess -= _seedQuantity;
-            _playerInventory.AddSeed(_seedData, _seedQuantity);
-            _playerMoney.RemoveMoney(_priceTotal);
+            _playerInventory.AddSeed(seedData, _seedQuantity);
+            _playerMoney.RemoveMoney(priceTotal);
         }
         else
         {
+            StartCoroutine(NotAddQuantity());
             return;
         }
     }
 
-    public void Sell()
+    public void Sell(SeedData seedData)
     {
-        if(_playerInventory.GetAmount(_seedData) >= _seedQuantity)
+        if (_playerInventory.GetAmount(seedData) >= _seedQuantity)
         {
             _seedPossess += _seedQuantity;
-            _playerInventory.RemoveSeed(_seedData, _seedQuantity);
-            _playerMoney.AddMoney(_seedData.SellPrice * _seedQuantity);
+            _playerInventory.RemoveSeed(seedData, _seedQuantity);
+            _playerMoney.AddMoney(seedData.SellPrice * _seedQuantity);
         }
         else
         {
+            StartCoroutine(NotAddQuantity());
             return;
         }
+    }
+
+    private IEnumerator NotAddQuantity()
+    {
+        _warningText.text = "You can't add more quantity";
+        yield return new WaitForSeconds(3);
     }
 }

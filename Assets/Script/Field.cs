@@ -30,6 +30,7 @@ public class Field : MonoBehaviour
     {
         if (!IsOcupied && IsChoose)
         {
+            Debug.Log("Planting seed...");
             IsOcupied = true;
             _seedBehaviour.PlantSeed();
         }
@@ -39,18 +40,13 @@ public class Field : MonoBehaviour
     {
         if (IsOcupied && _seedBehaviour.IsHarvestable)
         {
+            Debug.Log("Harvesting seed...");
             IsOcupied = false;
             _inventory.AddSeed(_seedBehaviour.SeedData, _seedBehaviour.SeedData.Amount);
             Destroy(_seedBehaviour.CurrentState);
-        }
-        StartCoroutine(Harvestable());
-    }
 
-    //Prevents the plant from growing automatically
-    private IEnumerator Harvestable()
-    {
-        yield return new WaitForSeconds(5);
-        _seedBehaviour.IsHarvestable = false;
-        _seedBehaviour.GrowthStage = 0;
+            _seedBehaviour.IsHarvestable = false;
+            _seedBehaviour.GrowthStage = 0;
+        }
     }
 }
