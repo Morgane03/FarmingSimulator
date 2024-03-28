@@ -58,8 +58,11 @@ public class PlayerController : MonoBehaviour
 
     public void OnFarm(InputAction.CallbackContext context)
     {
-        if (!context.started) return;
-        Debug.Log("Action !");
+        if (!context.started)
+        {
+            return;
+        }
+
         _playerMain.Field.PlanteSeed();
         _playerMain.Field.Harvest();
     }
@@ -82,6 +85,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        _rb.velocity = _directionPlayer;
+        _rb.velocity = _directionPlayer * _playerSpeed;
     }
 }

@@ -15,8 +15,6 @@ public class SeedBehaviour : MonoBehaviour
 
     public void PlantSeed()
     {
-        Debug.Log($"Avant plantage : " + SeedData.name + _inventory.GetAmount(SeedData));
-
         if (_inventory.GetAmount(SeedData) <= 0)
         {
             return;
@@ -28,9 +26,6 @@ public class SeedBehaviour : MonoBehaviour
             startTime = Time.time;
             StartCoroutine(GrowPlant());
         }
-
-        Debug.Log($"Après plantage : " + SeedData.name + _inventory.GetAmount(SeedData));
-
     }
 
     private IEnumerator GrowPlant()
