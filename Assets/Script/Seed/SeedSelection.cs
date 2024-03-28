@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Select the seed to plant
+/// </summary>
 public class SeedSelection : MonoBehaviour
 {
     [SerializeField]

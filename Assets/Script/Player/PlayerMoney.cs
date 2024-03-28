@@ -1,6 +1,9 @@
 ﻿using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Manage the money of the player
+/// </summary>
 public class PlayerMoney : MonoBehaviour
 {
     public int PlayerCurrentMoney;

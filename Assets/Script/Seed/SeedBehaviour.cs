@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// Manage the seed behaviour and growth
+/// </summary>
 public class SeedBehaviour : MonoBehaviour
 {
     public GameObject CurrentState;

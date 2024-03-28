@@ -1,6 +1,8 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Allows to recolor and plant 
+/// </summary>
 public class Field : MonoBehaviour
 {
     public bool IsOcupied = false;

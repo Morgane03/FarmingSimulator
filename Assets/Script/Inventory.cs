@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Manage the inventory of the player
+/// </summary>
 public class Inventory : MonoBehaviour
 {
     private Dictionary<SeedData, int> _seedInventory = new Dictionary<SeedData, int>();

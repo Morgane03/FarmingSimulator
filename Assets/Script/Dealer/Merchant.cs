@@ -2,6 +2,9 @@
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Manage the merchant 
+/// </summary>
 public class Merchant : MonoBehaviour
 {
     [SerializeField]
