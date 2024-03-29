@@ -18,5 +18,5 @@ MonoBehaviour:
   Harvestable: {fileID: 1648437061671814, guid: 3de71c2ba7770be419207944b730778a, type: 3}
   GrowthTime: 5
   PurchasePrice: 12
-  SellPrice: 6
+  SellPrice: 18
   Amount: 1

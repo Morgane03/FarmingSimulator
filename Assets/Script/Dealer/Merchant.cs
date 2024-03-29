@@ -70,5 +70,6 @@ public class Merchant : MonoBehaviour
     {
         _warningText.text = "You can't add more quantity";
         yield return new WaitForSeconds(3);
+        _warningText.text = "";
     }
 }

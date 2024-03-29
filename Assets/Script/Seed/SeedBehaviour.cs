@@ -51,7 +51,6 @@ public class SeedBehaviour : MonoBehaviour
             float elapsedTime = Time.time - _startTime;
             if (elapsedTime >= SeedData.GrowthTime)
             {
-                Debug.Log(SeedData.name + CurrentState);
                 GrowthStage++;
                 UpdatePlantPrefab();
                 _startTime = Time.time;
@@ -85,5 +84,6 @@ public class SeedBehaviour : MonoBehaviour
     {
         _warningText.text = "The plant" + SeedData.name + "is ready to harvest";
         yield return new WaitForSeconds(2);
+        _warningText.text = "";
     }
 }
