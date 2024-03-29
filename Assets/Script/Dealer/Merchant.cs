@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using TMPro;
 using UnityEngine;
 
@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class Merchant : MonoBehaviour
 {
+    public event Action<TextMeshProUGUI> UpdateWarningForMerchant;
+
     [SerializeField]
     private Inventory _playerInventory;
 
@@ -38,7 +40,7 @@ public class Merchant : MonoBehaviour
         }
         else
         {
-            StartCoroutine(NotAddQuantity());
+            UpdateWarningForMerchant?.Invoke(_warningText);
             return;
         }
     }
@@ -57,19 +59,8 @@ public class Merchant : MonoBehaviour
         }
         else
         {
-            StartCoroutine(NotAddQuantity());
+            UpdateWarningForMerchant?.Invoke(_warningText);
             return;
         }
-    }
-
-    /// <summary>
-    /// Text tells the player that they cannot buy or sell
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator NotAddQuantity()
-    {
-        _warningText.text = "You can't add more quantity";
-        yield return new WaitForSeconds(3);
-        _warningText.text = "";
     }
 }

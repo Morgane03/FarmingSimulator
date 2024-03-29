@@ -23,14 +23,14 @@ public class PlayerChooseField : MonoBehaviour
     {
         if (_playerMain.Field != null)
         {
-            _playerMain.Field.Selecte(false);
+            _playerMain.Field.Select(false);
             _playerMain.Field.IsChoose = false;
         }
 
         // Selected new field
         _playerMain.Field = field;
         field = _playerMain.PlayerController.GameObjectTouched.GetComponent<Field>();
-        field.Selecte(true);
+        field.Select(true);
         field.IsChoose = true;
         SeedBehaviour = field.GetComponentInChildren<SeedBehaviour>();
     }

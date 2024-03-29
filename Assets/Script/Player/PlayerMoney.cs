@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 
 /// <summary>
@@ -6,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class PlayerMoney : MonoBehaviour
 {
+    public event Action<TextMeshProUGUI> OnPlayerMoneyChange;
+
     [SerializeField]
     private TextMeshProUGUI _moneyText;
 
@@ -17,8 +20,8 @@ public class PlayerMoney : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        _moneyText.text = _playerBaseMoney.ToString();
         PlayerCurrentMoney = _playerBaseMoney;
+        OnPlayerMoneyChange?.Invoke(_moneyText);
     }
 
     /// <summary>
@@ -28,7 +31,7 @@ public class PlayerMoney : MonoBehaviour
     public void AddMoney(int money)
     {
         PlayerCurrentMoney += money;
-        _moneyText.text = PlayerCurrentMoney.ToString();
+        OnPlayerMoneyChange?.Invoke(_moneyText);
     }
 
     /// <summary>
@@ -38,6 +41,6 @@ public class PlayerMoney : MonoBehaviour
     public void RemoveMoney(int money)
     {
         PlayerCurrentMoney -= money;
-        _moneyText.text = PlayerCurrentMoney.ToString();
+        OnPlayerMoneyChange?.Invoke(_moneyText);
     }
 }

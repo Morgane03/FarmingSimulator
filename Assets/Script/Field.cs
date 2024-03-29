@@ -20,14 +20,14 @@ public class Field : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        Selecte(false);
+        Select(false);
     }
 
     /// <summary>
     /// Allows to select the plot
     /// </summary>
     /// <param name="toggle"></param>
-    public void Selecte(bool toggle)
+    public void Select(bool toggle)
     {
         _seedSelect.SetActive(toggle);
     }

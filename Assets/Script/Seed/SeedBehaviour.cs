@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ public class SeedBehaviour : MonoBehaviour
 
     public int GrowthStage = 0;
     public bool IsHarvestable = false;
+
+    public event Action<TextMeshProUGUI, SeedBehaviour> UpdateHarvestText;
 
     private float _startTime;
 
@@ -75,15 +78,8 @@ public class SeedBehaviour : MonoBehaviour
                 Destroy(CurrentState);
                 CurrentState = Instantiate(SeedData.Harvestable, transform.position, Quaternion.identity);
                 IsHarvestable = true;
-                StartCoroutine(PlantIsHarvestText());
+                UpdateHarvestText?.Invoke(_warningText, this);
                 break;
         }
-    }
-
-    private IEnumerator PlantIsHarvestText()
-    {
-        _warningText.text = "The plant" + SeedData.name + "is ready to harvest";
-        yield return new WaitForSeconds(2);
-        _warningText.text = "";
     }
 }
