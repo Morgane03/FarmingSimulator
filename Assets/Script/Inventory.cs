@@ -15,7 +15,6 @@ public class Inventory : MonoBehaviour
     /// <param name="amount"></param>
     public void AddSeed(SeedData seed, int amount)
     {
-        Debug.Log("Add seed: " + seed.SeedName + " amount: " + amount);
         if (_seedInventory.ContainsKey(seed))
         {
             _seedInventory[seed] += amount;

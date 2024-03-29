@@ -8,7 +8,7 @@ using UnityEngine;
 public class SeedBehaviour : MonoBehaviour
 {
     public GameObject CurrentState;
-    public SeedData SeedData;
+
     public int GrowthStage = 0;
     public bool IsHarvestable = false;
 
@@ -19,6 +19,8 @@ public class SeedBehaviour : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI _warningText;
+
+    public SeedData SeedData { get; set; }
 
     /// <summary>
     /// Plant the seed in the field
@@ -49,7 +51,7 @@ public class SeedBehaviour : MonoBehaviour
             float elapsedTime = Time.time - startTime;
             if (elapsedTime >= SeedData.GrowthTime)
             {
-                // Change to next growth stage
+                Debug.Log(SeedData.name + CurrentState);
                 GrowthStage++;
                 UpdatePlantPrefab();
                 startTime = Time.time;

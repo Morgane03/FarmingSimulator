@@ -13,7 +13,7 @@ public class SeedSelection : MonoBehaviour
     private Inventory _inventory;
 
     [SerializeField]
-    private List<SeedBehaviour> _seedBehaviourList;
+    private PlayerChooseField _playerChooseField;
 
     /// <summary>
     /// Choose the seed to plant
@@ -22,10 +22,7 @@ public class SeedSelection : MonoBehaviour
     {
         if (_inventory.GetAmount(_seedData) > 0)
         {
-            foreach (SeedBehaviour seedBehaviour in _seedBehaviourList)
-            {
-                seedBehaviour.SeedData = _seedData;
-            }
+            _playerChooseField.SeedBehaviour.SeedData = _seedData;
         }
     }
 }

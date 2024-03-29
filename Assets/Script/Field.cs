@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Allows to recolor and plant 
+/// Allows to recolor and plant
 /// </summary>
 public class Field : MonoBehaviour
 {
-    public bool IsOcupied = false;
     public bool IsChoose = false;
+    private bool _isOcupied = false;
 
     [SerializeField]
     private GameObject _seedSelect;
@@ -37,9 +37,9 @@ public class Field : MonoBehaviour
     /// </summary>
     public void PlanteSeed()
     {
-        if (!IsOcupied && IsChoose)
+        if (!_isOcupied && IsChoose)
         {
-            IsOcupied = true;
+            _isOcupied = true;
             _seedBehaviour.PlantSeed();
         }
     }
@@ -49,9 +49,9 @@ public class Field : MonoBehaviour
     /// </summary>
     public void Harvest()
     {
-        if (IsOcupied && _seedBehaviour.IsHarvestable)
+        if (_isOcupied && _seedBehaviour.IsHarvestable)
         {
-            IsOcupied = false;
+            _isOcupied = false;
             _inventory.AddSeed(_seedBehaviour.SeedData, _seedBehaviour.SeedData.Amount);
             Destroy(_seedBehaviour.CurrentState);
 

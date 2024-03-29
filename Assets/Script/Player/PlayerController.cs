@@ -6,8 +6,6 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
-    public GameObject _gameObjectTouched;
-
     [SerializeField]
     private PlayerMain _playerMain;
 
@@ -22,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody _rb;
     private Vector3 _directionPlayer;
+
+    public GameObject GameObjectTouched { get; private set; }
 
     // Start is called before the first frame update
     private void Start()
@@ -47,16 +47,16 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            _gameObjectTouched = StartRaycast();
-            if (_gameObjectTouched != null)
+            GameObjectTouched = StartRaycast();
+            if (GameObjectTouched != null)
             {
-                switch (_gameObjectTouched.tag)
+                switch (GameObjectTouched.tag)
                 {
                     case "Market":
                         _dealerCanva.SetActive(true);
                         break;
                     case "Land":
-                        Field field = _gameObjectTouched.GetComponent<Field>();
+                        Field field = GameObjectTouched.GetComponent<Field>();
                         _playerMain.PlayerChooseField.SelectLand(field);
                         break;
                 }

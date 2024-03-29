@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 
 /// <summary>
-/// Manage the merchant 
+/// Manage the merchant
 /// </summary>
 public class Merchant : MonoBehaviour
 {

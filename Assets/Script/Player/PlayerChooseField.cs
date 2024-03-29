@@ -8,6 +8,8 @@ public class PlayerChooseField : MonoBehaviour
     [SerializeField]
     private PlayerMain _playerMain;
 
+    public SeedBehaviour SeedBehaviour { get; private set; }
+
     private void Start()
     {
         _playerMain.Field = null;
@@ -27,8 +29,9 @@ public class PlayerChooseField : MonoBehaviour
 
         // Selected new field
         _playerMain.Field = field;
-        field = _playerMain.PlayerController._gameObjectTouched.GetComponent<Field>();
+        field = _playerMain.PlayerController.GameObjectTouched.GetComponent<Field>();
         field.Selecte(true);
         field.IsChoose = true;
+        SeedBehaviour = field.GetComponentInChildren<SeedBehaviour>();
     }
 }
