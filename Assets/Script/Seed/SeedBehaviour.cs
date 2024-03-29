@@ -12,7 +12,7 @@ public class SeedBehaviour : MonoBehaviour
     public int GrowthStage = 0;
     public bool IsHarvestable = false;
 
-    private float startTime;
+    private float _startTime;
 
     [SerializeField]
     private Inventory _inventory;
@@ -35,7 +35,7 @@ public class SeedBehaviour : MonoBehaviour
         {
             _inventory.RemoveSeed(SeedData, 1);
             CurrentState = Instantiate(SeedData.Seed, transform);
-            startTime = Time.time;
+            _startTime = Time.time;
             StartCoroutine(GrowPlant());
         }
     }
@@ -48,13 +48,13 @@ public class SeedBehaviour : MonoBehaviour
     {
         while (GrowthStage < 3)
         {
-            float elapsedTime = Time.time - startTime;
+            float elapsedTime = Time.time - _startTime;
             if (elapsedTime >= SeedData.GrowthTime)
             {
                 Debug.Log(SeedData.name + CurrentState);
                 GrowthStage++;
                 UpdatePlantPrefab();
-                startTime = Time.time;
+                _startTime = Time.time;
             }
 
             yield return null;

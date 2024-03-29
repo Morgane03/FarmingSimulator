@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 public class Inventory : MonoBehaviour
 {
-    private Dictionary<SeedData, int> _seedInventory = new Dictionary<SeedData, int>();
+    private Dictionary<SeedData, int> _seedInventory = new();
 
     /// <summary>
     /// Add seed/plant to the inventory

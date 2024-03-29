@@ -86,10 +86,9 @@ public class PlayerController : MonoBehaviour
     private GameObject StartRaycast()
     {
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-        RaycastHit hit;
 
         // Cast a ray from the mouse position and check if it hits an object
-        if (Physics.Raycast(ray, out hit, 100f, _layerMask))
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f, _layerMask))
         {
             return hit.collider.gameObject;
         }
