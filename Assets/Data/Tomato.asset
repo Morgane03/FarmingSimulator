@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfd6f8104b5a7194ebbce62de374e7f1, type: 3}
-  m_Name: Beetroot
+  m_Name: Tomato
   m_EditorClassIdentifier: 
-  SeedName: Beetroot
-  Seed: {fileID: 1258779052373952, guid: 741311cc36ce74e4c8bdeea51ad10665, type: 3}
-  Seedling: {fileID: 1512095424652320, guid: 8264ff67b81fb69418f4d7c116104a23, type: 3}
-  Harvestable: {fileID: 1659519851599370, guid: 4dffc0019107a3f4db3aeb85961d9be7, type: 3}
-  GrowthTime: 10
-  PurchasePrice: 20
-  SellPrice: 30
-  Amount: 1
+  SeedName: Tomato
+  Seed: {fileID: 1000237892432632, guid: d1d6e6bd9deeb5443a7de9548979e947, type: 3}
+  Seedling: {fileID: 1522334769042308, guid: 45103891c7213d849b6ab33e48628e00, type: 3}
+  Harvestable: {fileID: 1261134927141026, guid: 9bf2c79eafa22814a8bd2e6b64647e20, type: 3}
+  GrowthTime: 7
+  PurchasePrice: 15
+  SellPrice: 25
+  Amount: 6

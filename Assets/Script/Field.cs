@@ -23,11 +23,18 @@ public class Field : MonoBehaviour
         Selecte(false);
     }
 
+    /// <summary>
+    /// Allows to select the plot
+    /// </summary>
+    /// <param name="toggle"></param>
     public void Selecte(bool toggle)
     {
         _seedSelect.SetActive(toggle);
     }
 
+    /// <summary>
+    /// Allows to plant a seed if the plot is not occupied
+    /// </summary>
     public void PlanteSeed()
     {
         if (!IsOcupied && IsChoose)
@@ -37,6 +44,9 @@ public class Field : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Allows to harvest the seed if the plot is occupied
+    /// </summary>
     public void Harvest()
     {
         if (IsOcupied && _seedBehaviour.IsHarvestable)

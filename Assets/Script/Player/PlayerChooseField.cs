@@ -13,6 +13,10 @@ public class PlayerChooseField : MonoBehaviour
         _playerMain.Field = null;
     }
 
+    /// <summary>
+    /// Allows to select a plot of land and give feedback to the player
+    /// </summary>
+    /// <param name="field"></param>
     public void SelectLand(Field field)
     {
         if (_playerMain.Field != null)

@@ -15,6 +15,9 @@ public class SeedSelection : MonoBehaviour
     [SerializeField]
     private List<SeedBehaviour> _seedBehaviourList;
 
+    /// <summary>
+    /// Choose the seed to plant
+    /// </summary>
     public void ChoosePlantSeed()
     {
         if (_inventory.GetAmount(_seedData) > 0)

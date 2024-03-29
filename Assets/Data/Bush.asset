@@ -19,5 +19,4 @@ MonoBehaviour:
   GrowthTime: 2
   PurchasePrice: 3
   SellPrice: 5
-  CanPlant: 0
-  Amount: 0
+  Amount: 3

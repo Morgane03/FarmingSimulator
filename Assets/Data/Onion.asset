@@ -16,7 +16,7 @@ MonoBehaviour:
   Seed: {fileID: 1682263953301304, guid: ef10db410d4f3974085973a64cd5061e, type: 3}
   Seedling: {fileID: 1844472924765640, guid: 4e46d6f185e48d64baf0d2527861b434, type: 3}
   Harvestable: {fileID: 1037932898391020, guid: f2dcaf4ec916af54db3e2986361dc976, type: 3}
-  GrowthTime: 1
+  GrowthTime: 7
   PurchasePrice: 6
   SellPrice: 10
-  Amount: 5
+  Amount: 2

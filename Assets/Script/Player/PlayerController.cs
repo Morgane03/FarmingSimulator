@@ -29,12 +29,20 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
+    /// <summary>
+    /// Defined the movement of the player
+    /// </summary>
+    /// <param name="context"></param>
     public void OnMove(InputAction.CallbackContext context)
     {
         _directionPlayer = context.ReadValue<Vector3>();
     }
 
-    // thank's Kylian for showing me how
+    /// <summary>
+    /// Defined the interaction of the player
+    /// Thank's Kylian for showing me how
+    /// </summary>
+    /// <param name="context"></param>
     public void OnInteract(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -56,6 +64,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Defined the action of the player to farm
+    /// </summary>
+    /// <param name="context"></param>
     public void OnFarm(InputAction.CallbackContext context)
     {
         if (!context.started)
@@ -67,6 +79,10 @@ public class PlayerController : MonoBehaviour
         _playerMain.Field.Harvest();
     }
 
+    /// <summary>
+    /// Defined the player’s raycast
+    /// </summary>
+    /// <returns></returns>
     private GameObject StartRaycast()
     {
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());

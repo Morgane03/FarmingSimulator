@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 /// <summary>
@@ -16,6 +17,12 @@ public class SeedBehaviour : MonoBehaviour
     [SerializeField]
     private Inventory _inventory;
 
+    [SerializeField]
+    private TextMeshProUGUI _warningText;
+
+    /// <summary>
+    /// Plant the seed in the field
+    /// </summary>
     public void PlantSeed()
     {
         if (_inventory.GetAmount(SeedData) <= 0)
@@ -31,6 +38,10 @@ public class SeedBehaviour : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Grow the plant to the next stage
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator GrowPlant()
     {
         while (GrowthStage < 3)
@@ -48,6 +59,9 @@ public class SeedBehaviour : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Update the plant prefab based on the growth stage
+    /// </summary>
     private void UpdatePlantPrefab()
     {
         switch (GrowthStage)
@@ -60,7 +74,14 @@ public class SeedBehaviour : MonoBehaviour
                 Destroy(CurrentState);
                 CurrentState = Instantiate(SeedData.Harvestable, transform.position, Quaternion.identity);
                 IsHarvestable = true;
+                StartCoroutine(PlantIsHarvestText());
                 break;
         }
+    }
+
+    private IEnumerator PlantIsHarvestText()
+    {
+        _warningText.text = "The plant" + SeedData.name + "is ready to harvest";
+        yield return new WaitForSeconds(2);
     }
 }

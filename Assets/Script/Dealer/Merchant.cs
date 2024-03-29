@@ -22,6 +22,10 @@ public class Merchant : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _warningText;
 
+    /// <summary>
+    /// Player buys selected seeds/plants from the merchant
+    /// </summary>
+    /// <param name="seedData"></param>
     public void Buy(SeedData seedData)
     {
         int priceTotal = seedData.PurchasePrice * _seedQuantity;
@@ -39,6 +43,10 @@ public class Merchant : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Player sells selected seeds/plants to the merchant
+    /// </summary>
+    /// <param name="seedData"></param>
     public void Sell(SeedData seedData)
     {
         if (_playerInventory.GetAmount(seedData) >= _seedQuantity)
@@ -54,6 +62,10 @@ public class Merchant : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Text tells the player that they cannot buy or sell
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator NotAddQuantity()
     {
         _warningText.text = "You can't add more quantity";

@@ -21,12 +21,20 @@ public class PlayerMoney : MonoBehaviour
         PlayerCurrentMoney = _playerBaseMoney;
     }
 
+    /// <summary>
+    /// Add money to the player and update the UI
+    /// </summary>
+    /// <param name="money"></param>
     public void AddMoney(int money)
     {
         PlayerCurrentMoney += money;
         _moneyText.text = PlayerCurrentMoney.ToString();
     }
 
+    /// <summary>
+    /// Remove money to the player and update the UI
+    /// </summary>
+    /// <param name="money"></param>
     public void RemoveMoney(int money)
     {
         PlayerCurrentMoney -= money;
